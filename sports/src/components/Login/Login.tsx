@@ -2,13 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { Form, FormContent, TextAcount, Title } from './FormStyled';
-import {
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  
-} from 'firebase/auth';
+import { onAuthStateChanged,signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
 import NavBar from '../NavBar/NavBar';
+import {Alert} from '../Alert/alert';
 
 const Login = () => {
   useEffect(() => {
@@ -28,7 +25,6 @@ const Login = () => {
   const darkLight = useSelector(
     (state: any) => state.theme
   )
-  
 
   const login = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -42,12 +38,18 @@ const Login = () => {
             console.log(user);
             setEmail('');
             setPassword('');
-            alert('succes')
-            navigate('/');
+            Alert(
+              'Welcome Back',
+              'success'
+            )
+            setTimeout(() => navigate('/') , 2000)
           } 
         })
         .catch((error) => {
-          alert(error)
+          Alert(
+            `${error.message}`,
+            'error'
+          )
         });
     }
   };

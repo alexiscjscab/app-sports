@@ -5,6 +5,7 @@ import { Form, FormContent, TextAcount, Title } from './FormStyled';
 import { createUserWithEmailAndPassword, UserCredential } from 'firebase/auth';
 import { auth } from '../../firebase';
 import NavBar from '../NavBar/NavBar';
+import { Alert } from '../Alert/alert';
 
 const SignUp = (): JSX.Element => {
   const [email, setEmail] = useState<string>('');
@@ -18,19 +19,28 @@ const SignUp = (): JSX.Element => {
     e.preventDefault();
 
     if (!email.trim() || !password.trim()) {
-      alert('Please enter an email and password');
+      Alert(
+        'Please enter an email and password',
+        'error'
+      )
     } else {
       createUserWithEmailAndPassword(auth, email, password)
         .then((user) => {
           if (user) {
             setEmail('');
             setPassword('');
-            alert('You have successfully registered!');
+            Alert(
+              'Welcome New User',
+              'success'
+            )
             navigate('/');
           }
         })
         .catch((error) => {
-          alert(error.message);
+          Alert(
+            `${error.message}`,
+            'error'
+          )
         });
     }
   };
