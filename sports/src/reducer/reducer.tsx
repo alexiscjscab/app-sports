@@ -1,7 +1,12 @@
 import { Action } from "redux"
 
-const initialState = {
+interface State {
+  theme: string,
+  sports: any
+}
+const initialState:State = {
   theme: 'dark',
+  sports: []
 }
 
 const rootReducer = (state = initialState, action: any) => {
@@ -10,6 +15,11 @@ const rootReducer = (state = initialState, action: any) => {
       return {
         ...state,
         theme: action.payload
+      }
+    case 'GET_ALL_SPORTS':
+      return {
+        ...state,
+        sports: action.payload
       }
     default:
       return state
