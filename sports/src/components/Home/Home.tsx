@@ -21,7 +21,6 @@ const Home:React.FC = () => {
     await signOut(auth);
   };
 
-  console.log(darkLight)
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
@@ -54,7 +53,7 @@ const Home:React.FC = () => {
       : (
         <div>
           <h4>{user.email.split('@')[0].toUpperCase()}:)</h4>
-          <ButtonHome>Match Sports</ButtonHome>
+          <ButtonHome onClick={() => navigate('/match')}>Match Sports</ButtonHome>
           <ButtonHome onClick={logout}>Logout</ButtonHome>
         </div>
       )}
