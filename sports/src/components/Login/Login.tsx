@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Form, FormContent, TextAcount, Title } from './FormStyled';
 import { onAuthStateChanged,signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
-import NavBar from '../NavBar/NavBar';
+import NavBarTop from '../NavBar/NavBar';
 import {Alert} from '../Alert/alert';
 
 const Login = () => {
@@ -56,7 +56,7 @@ const Login = () => {
 
   return (
     <FormContent colorTheme={darkLight}>
-      <NavBar />
+      <NavBarTop />
       <Title colorTheme={darkLight}>
         <h1>Welcome</h1>
         <h3>Login User</h3>

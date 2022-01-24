@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllSports } from '../../actions/actions';
 import Card from '../Card/Card';
-import NavBar from '../NavBar/NavBar';
+import NavBarTop from '../NavBar/NavBar';
 import { MatchContainer } from './MatchStyled';
 import ReactLoading from 'react-loading';
 
@@ -19,7 +19,7 @@ const Match = () => {
 
   return (
     <MatchContainer colorTheme={darkLight}>
-      <NavBar />
+      <NavBarTop />
       {sports.length > 0 ? (
         <Card sport={sports} />
       ) : (

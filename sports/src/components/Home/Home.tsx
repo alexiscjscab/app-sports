@@ -4,7 +4,7 @@ import { auth } from '../../firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { ButtonHome, HomeContainer } from './HomeStyled';
-import NavBar from '../NavBar/NavBar';
+import NavBarTop from '../NavBar/NavBar';
 
 
 
@@ -41,7 +41,7 @@ const Home:React.FC = () => {
 
   return (
     <HomeContainer colorTheme={darkLight}>
-      <NavBar />
+      <NavBarTop />
       <h1>Welcome</h1>
       {user.email === '' 
       ? 

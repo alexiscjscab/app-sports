@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { PropColorTheme } from '../../types/types';
 
-export const Nav = styled.nav.attrs((props: PropColorTheme) => ({
+export const NavTop = styled.nav.attrs((props: PropColorTheme) => ({
   color: props.colorTheme
 }))<PropColorTheme>`
   display: flex;
