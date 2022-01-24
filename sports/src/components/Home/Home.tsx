@@ -4,7 +4,7 @@ import { auth } from '../../firebase';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { ButtonHome, HomeContainer } from './HomeStyled';
-import NavBarTop from '../NavBar/NavBar';
+import NavBarTop from '../NavBar/NavBarTop';
 
 
 

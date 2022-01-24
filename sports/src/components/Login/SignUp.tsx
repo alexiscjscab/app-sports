@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Form, FormContent, TextAcount, Title } from './FormStyled';
 import { createUserWithEmailAndPassword, UserCredential } from 'firebase/auth';
 import { auth } from '../../firebase';
-import NavBarTop from '../NavBar/NavBar';
+import NavBarTop from '../NavBar/NavBarTop';
 import { Alert } from '../Alert/alert';
 
 const SignUp = (): JSX.Element => {

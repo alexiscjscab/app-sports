@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllSports } from '../../actions/actions';
 import Card from '../Card/Card';
-import NavBarTop from '../NavBar/NavBar';
+import NavBarTop from '../NavBar/NavBarTop';
 import { MatchContainer } from './MatchStyled';
 import ReactLoading from 'react-loading';
 
