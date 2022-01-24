@@ -5,7 +5,7 @@ import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
 import { ButtonHome, HomeContainer } from './HomeStyled';
 import NavBarTop from '../NavBar/NavBarTop';
-
+import NavBarBottom from '../NavBar/NavBarBottom';
 
 
 const Home:React.FC = () => {
@@ -57,6 +57,7 @@ const Home:React.FC = () => {
           <ButtonHome onClick={logout}>Logout</ButtonHome>
         </div>
       )}
+      <NavBarBottom />
     </HomeContainer>
   );
 };

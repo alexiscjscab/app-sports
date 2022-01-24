@@ -5,6 +5,7 @@ import { Form, FormContent, TextAcount, Title } from './FormStyled';
 import { createUserWithEmailAndPassword, UserCredential } from 'firebase/auth';
 import { auth } from '../../firebase';
 import NavBarTop from '../NavBar/NavBarTop';
+import NavBarBottom from '../NavBar/NavBarBottom';
 import { Alert } from '../Alert/alert';
 
 const SignUp = (): JSX.Element => {
@@ -84,6 +85,7 @@ const SignUp = (): JSX.Element => {
           Do you already have an account? <Link to='/login'>Login</Link>
         </p>
       </TextAcount>
+      <NavBarBottom />
     </FormContent>
   );
 };

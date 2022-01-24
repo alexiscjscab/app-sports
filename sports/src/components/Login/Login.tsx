@@ -5,6 +5,7 @@ import { Form, FormContent, TextAcount, Title } from './FormStyled';
 import { onAuthStateChanged,signInWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../firebase';
 import NavBarTop from '../NavBar/NavBarTop';
+import NavBarBottom from '../NavBar/NavBarBottom';
 import {Alert} from '../Alert/alert';
 
 const Login = () => {
@@ -93,6 +94,7 @@ const Login = () => {
           Don't have an account? <Link to='/signup'> Sign Up </Link>
         </p>
       </TextAcount>
+      <NavBarBottom />
     </FormContent>
   );
 };

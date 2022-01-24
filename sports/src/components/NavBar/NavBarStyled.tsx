@@ -19,3 +19,28 @@ export const NavTop = styled.nav.attrs((props: PropColorTheme) => ({
     }
   }
 `
+
+export const NavBottom = styled.nav.attrs((props: PropColorTheme) => ({
+  color: props.colorTheme,
+  background: props.colorTheme
+}))<PropColorTheme>`
+  width: 240px;
+  border-radius: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :'#000' };
+  margin-top: 30px;
+  padding: 10px;
+  a{
+    text-decoration: none;
+    color: ${(props: any) => props.colorTheme  === 'dark' ? '#000' :'#fff' }; 
+  }
+
+  .icon{
+    transition: all 0.3s ease-in-out;
+    &:hover{
+      transform: scale(1.2);
+    }
+  }
+`
