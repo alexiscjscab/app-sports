@@ -15,17 +15,8 @@ export const HomeContainer = styled.div.attrs((props: PropColorTheme) => ({
   // dark ligth
   background: ${(props: any) => props.colorTheme  === 'dark' ? '#000' : '#fff' };
   color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
-
-  div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    h4{
-    letter-spacing:5px;
-  }
-  }
 `
+
 
 export const ButtonHome = styled.button`
   cursor: pointer;

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { Form, FormContent, TextAcount, Title } from './FormStyled';
+import { ButtonBlue, Form, FormContent, TextAcount, Title } from './FormStyled';
 import { createUserWithEmailAndPassword, UserCredential } from 'firebase/auth';
 import { auth } from '../../firebase';
 import NavBarTop from '../NavBar/NavBarTop';
@@ -78,7 +78,7 @@ const SignUp = (): JSX.Element => {
             required
           />
         </div>
-        <input type='submit' value='Sign Up' />
+        <ButtonBlue type='submit'>Sign Up</ButtonBlue>
       </Form>
       <TextAcount colorTheme={darkLight}>
         <p>

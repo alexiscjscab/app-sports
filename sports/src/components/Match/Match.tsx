@@ -19,7 +19,6 @@ const Match = () => {
 
   return (
     <MatchContainer colorTheme={darkLight}>
-      <NavBarTop />
       {sports.length > 0 ? (
         <Card sport={sports} />
       ) : (

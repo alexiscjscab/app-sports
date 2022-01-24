@@ -5,7 +5,6 @@ export const MatchContainer = styled.div.attrs((props: PropColorTheme) => ({
   background: props.colorTheme,
   color: props.colorTheme
 }))<PropColorTheme>`
-  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

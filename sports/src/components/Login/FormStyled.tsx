@@ -22,21 +22,7 @@ input{
   // dark light
   color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
 }
-input[type=submit]{
- cursor: pointer;
- padding: 8px;
- outline: none;
- border: none;
- border-radius: 10px;
- background: blue;
- color: #fff;
- transition: all 0.3s ease-in-out;
- &:hover{
-  transform: scale(1.1);
-  font-weight: bold;
-  box-shadow: 0px 0px 10px #fff;
-}
-}
+
 .divInput {
   padding: 2px;
   display: flex;
@@ -95,4 +81,23 @@ export const Title = styled.div.attrs((props: PropColorTheme) => ({
 }))<PropColorTheme>`
   text-align: center;
   color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
+  margin: 10px;
 `
+
+export const ButtonBlue = styled.button`
+  cursor: pointer;
+  padding: 8px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  background: blue;
+  color: #fff;
+  font-size: 18px;
+  margin: 10px;
+  &:hover{
+    transform: scale(1.1);
+    font-weight: bold;
+    box-shadow: 0px 0px 10px #fff;
+  }
+  
+`;
