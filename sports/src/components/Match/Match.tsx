@@ -20,7 +20,7 @@ const Match = () => {
   return (
     <MatchContainer colorTheme={darkLight}>
       {sports.length > 0 ? (
-        <Card sport={sports} />
+        <Card sport={sports}/>
       ) : (
         <ReactLoading
           type='spin'

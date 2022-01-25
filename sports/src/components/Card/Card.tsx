@@ -4,35 +4,177 @@ import { CardContainer, CardItem, CardItemIcon } from './CardStyle';
 import { useSelector } from 'react-redux';
 import { FaHeart, FaHeartBroken } from 'react-icons/fa';
 import { indexIncrement } from '../../actions/actions';
+import { db, auth } from '../../firebase';
+import { collection, addDoc, getDocs } from 'firebase/firestore';
+import { onAuthStateChanged } from 'firebase/auth';
+
+interface Likes {
+  id: string;
+  name: string;
+  icon: string;
+  user: any;
+}
 
 const Card = (sports: any) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const sport = sports.sport;
   const darkLight = useSelector((state: any) => state.theme);
   const indexNumber = useSelector((state: any) => state.indexNumber);
+  const [user, setUser] = useState({
+    email: '',
+  });
+  
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setUser({
+          ...user,
+          email: `${currentUser.email}`,
+        });
+      } else {
+        setUser({
+          ...user,
+          email: '',
+        });
+      }
+    });
+  }, []);
 
-  const handleClick = (value: string) => {
+  // const likesAndDislikes = async () => {
+  //   const getLikes = await getDocs(collection(db, 'likes'));
+  //   const getDisLikes = await getDocs(collection(db, 'dislikes'));
+  //   getLikes.forEach((like: any) => {
+  //     arrayLike.push({
+  //       id: like.data().id,
+  //       name: like.data().name,
+  //       icon: like.data().icon,
+  //       user: like.data().user,
+  //     });
+  //   });
+  //   getDisLikes.forEach((dislike: any) => {
+  //     arrayDisLike.push({
+  //       id: dislike.data().id,
+  //       name: dislike.data().name,
+  //       icon: dislike.data().icon,
+  //       user: dislike.data().user,
+  //     });
+  //   });
+  // };
+
+  const addLike = async (sport: any) => {
+    const id = sport.idSport;
+    const name = sport.strSport;
+    const icon = sport.strSportIconGreen;
+    try {
+      const arrayLike: Array<Likes> = [];
+      const arrayDisLike: Array<Likes> = [];
+
+      const getLikes = await getDocs(collection(db, 'likes'));
+      const getDisLikes = await getDocs(collection(db, 'dislikes'));
+      getLikes.forEach((like: any) => {
+        arrayLike.push({
+          id: like.data().id,
+          name: like.data().name,
+          icon: like.data().icon,
+          user: like.data().user,
+        });
+      });
+      getDisLikes.forEach((dislike: any) => {
+        arrayDisLike.push({
+          id: dislike.data().id,
+          name: dislike.data().name,
+          icon: dislike.data().icon,
+          user: dislike.data().user,
+        });
+      });
+
+      const likedFilter = arrayLike.find(
+        (like: any) => like.id === id && like.user === user.email
+      );
+
+      const dislikedFilter = arrayDisLike.find(
+        (dislike: any) => dislike.id === id && dislike.user === user.email
+      );
+
+      if (likedFilter || dislikedFilter) {
+        console.log('ya esta en la lista');
+      } else {
+        const newLike = await addDoc(collection(db, 'likes'), {
+          id,
+          name,
+          icon,
+          user: user.email,
+        });
+        console.log(newLike);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const addDislike = async (sport: any) => {
+    const id = sport.idSport;
+    const name = sport.strSport;
+    const icon = sport.strSportIconGreen;
+    try {
+      const arrayLike: Array<Likes> = [];
+      const arrayDisLike: Array<Likes> = [];
+
+      const getLikes = await getDocs(collection(db, 'likes'));
+      const getDisLikes = await getDocs(collection(db, 'dislikes'));
+      getLikes.forEach((like: any) => {
+        arrayLike.push({
+          id: like.data().id,
+          name: like.data().name,
+          icon: like.data().icon,
+          user: like.data().user,
+        });
+      });
+      getDisLikes.forEach((dislike: any) => {
+        arrayDisLike.push({
+          id: dislike.data().id,
+          name: dislike.data().name,
+          icon: dislike.data().icon,
+          user: dislike.data().user,
+        });
+      });
+
+      const likedFilter = arrayLike.find(
+        (like: any) => like.id === id && like.user === user.email
+      );
+
+      const dislikedFilter = arrayDisLike.find(
+        (dislike: any) => dislike.id === id && dislike.user === user.email
+      )
+      
+      if (likedFilter || dislikedFilter) {
+        console.log('ya esta en la lista');
+      } else {
+        const newDislike = await addDoc(collection(db, 'dislikes'), {
+          id,
+          name,
+          icon,
+          user: user.email,
+        });
+        console.log(newDislike);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleClick = (value: string, sport: any) => {
     setTimeout(() => {
-      value === 'like' ? console.log('like') : console.log('dislike');
-      dispatch(indexIncrement())
+      value === 'like' ? addLike(sport) : addDislike(sport);
+      dispatch(indexIncrement());
     }, 700);
   };
-  /*
-  useEffect(() => {
-    resetIndex();
-  }, [indexCard]);
-
-  const resetIndex = (): void => {
-    if (indexCard === sport.length) setIndexCard(0);
-  };
-  */
-
   return (
     <CardContainer colorTheme={darkLight}>
       {sport.length > 0 &&
         sport.map((sport: any, index: number) => {
           return index === indexNumber ? (
-            <CardItem key={sport.strSport} colorTheme={darkLight}>
+            <CardItem key={sport.idSport} colorTheme={darkLight}>
               <div className='img-cardItem'>
                 <img
                   id='img-ctn'
@@ -47,11 +189,17 @@ const Card = (sports: any) => {
               </div>
 
               <CardItemIcon colorTheme={darkLight}>
-                <div className='heart-broken' onClick={() => handleClick('dislike')}>
+                <div
+                  className='heart-broken'
+                  onClick={() => handleClick('dislike', sport)}
+                >
                   <FaHeartBroken fontSize={30} />
                 </div>
-                <div className='heart' onClick={() => handleClick('like')}>
-                  <FaHeart fontSize={32}/>
+                <div
+                  className='heart'
+                  onClick={() => handleClick('like', sport)}
+                >
+                  <FaHeart fontSize={32} />
                 </div>
               </CardItemIcon>
             </CardItem>
