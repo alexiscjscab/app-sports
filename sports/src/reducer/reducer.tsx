@@ -2,11 +2,13 @@ import { Action } from "redux"
 
 interface State {
   theme: string,
-  sports: any
+  sports: any,
+  indexNumber: number
 }
 const initialState:State = {
   theme: 'dark',
-  sports: []
+  sports: [],
+  indexNumber: 0
 }
 
 const rootReducer = (state = initialState, action: any) => {
@@ -20,6 +22,11 @@ const rootReducer = (state = initialState, action: any) => {
       return {
         ...state,
         sports: action.payload
+      }
+    case 'INDEX_INCREMENT':
+      return {
+        ...state,
+        indexNumber: state.indexNumber + 1
       }
     default:
       return state

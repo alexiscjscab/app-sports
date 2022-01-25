@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { CardContainer, CardItem, CardItemIcon } from './CardStyle';
 import { useSelector } from 'react-redux';
 import { FaHeart, FaHeartBroken } from 'react-icons/fa';
+import { indexIncrement } from '../../actions/actions';
 
 const Card = (sports: any) => {
+  const dispatch = useDispatch()
   const sport = sports.sport;
   const darkLight = useSelector((state: any) => state.theme);
-  const [indexCard, setIndexCard] = useState<number>(0);
+  const indexNumber = useSelector((state: any) => state.indexNumber);
 
   const handleClick = (value: string) => {
-    value === 'like' ? console.log('like') : console.log('dislike');
     setTimeout(() => {
-      setIndexCard(indexCard + 1);
+      value === 'like' ? console.log('like') : console.log('dislike');
+      dispatch(indexIncrement())
     }, 700);
   };
-
+  /*
   useEffect(() => {
     resetIndex();
   }, [indexCard]);
@@ -22,12 +25,13 @@ const Card = (sports: any) => {
   const resetIndex = (): void => {
     if (indexCard === sport.length) setIndexCard(0);
   };
+  */
 
   return (
     <CardContainer colorTheme={darkLight}>
       {sport.length > 0 &&
         sport.map((sport: any, index: number) => {
-          return index === indexCard ? (
+          return index === indexNumber ? (
             <CardItem key={sport.strSport} colorTheme={darkLight}>
               <div className='img-cardItem'>
                 <img

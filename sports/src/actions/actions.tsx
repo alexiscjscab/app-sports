@@ -27,3 +27,14 @@ export const getAllSports = () => async(dispatch: ThunkDispatch<{}, {},AnyAction
     console.log(error)
   }
 }
+
+export const indexIncrement = () => async(dispatch: ThunkDispatch<{}, {},AnyAction>) => {
+  try{
+    dispatch({
+      type: 'INDEX_INCREMENT'
+    })
+
+  } catch (error){
+    console.log(error)
+  }
+}
