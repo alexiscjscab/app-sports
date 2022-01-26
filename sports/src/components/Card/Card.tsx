@@ -40,27 +40,6 @@ const Card = (sports: any) => {
     });
   }, []);
 
-  // const likesAndDislikes = async () => {
-  //   const getLikes = await getDocs(collection(db, 'likes'));
-  //   const getDisLikes = await getDocs(collection(db, 'dislikes'));
-  //   getLikes.forEach((like: any) => {
-  //     arrayLike.push({
-  //       id: like.data().id,
-  //       name: like.data().name,
-  //       icon: like.data().icon,
-  //       user: like.data().user,
-  //     });
-  //   });
-  //   getDisLikes.forEach((dislike: any) => {
-  //     arrayDisLike.push({
-  //       id: dislike.data().id,
-  //       name: dislike.data().name,
-  //       icon: dislike.data().icon,
-  //       user: dislike.data().user,
-  //     });
-  //   });
-  // };
-
   const addLike = async (sport: any) => {
     const id = sport.idSport;
     const name = sport.strSport;
@@ -105,7 +84,6 @@ const Card = (sports: any) => {
           icon,
           user: user.email,
         });
-        console.log(newLike);
       }
     } catch (error) {
       console.log(error);
@@ -156,7 +134,6 @@ const Card = (sports: any) => {
           icon,
           user: user.email,
         });
-        console.log(newDislike);
       }
     } catch (error) {
       console.log(error);

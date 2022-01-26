@@ -97,7 +97,7 @@ export const CardItemIcon = styled.div.attrs((props: PropColorTheme) => ({
     margin: 12px 12px 0px 0px;
     cursor: pointer;
     transition: all 0.4s ease-in-out;
-    color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
+    color: gray;
     &:hover{
       transform: scale(1.3)
     }
