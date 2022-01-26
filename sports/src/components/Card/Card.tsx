@@ -7,6 +7,7 @@ import { indexIncrement } from '../../actions/actions';
 import { db, auth } from '../../firebase';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
+import { Alert } from '../Alert/alert';
 
 interface Likes {
   id: string;
@@ -76,17 +77,18 @@ const Card = (sports: any) => {
       );
 
       if (likedFilter || dislikedFilter) {
-        console.log('ya esta en la lista');
+        Alert('You already liked or disliked this sport', 'error');
       } else {
-        const newLike = await addDoc(collection(db, 'likes'), {
+        await addDoc(collection(db, 'likes'), {
           id,
           name,
           icon,
           user: user.email,
         });
+        Alert(`You liked this sport ${name}`, 'success');
       }
     } catch (error) {
-      console.log(error);
+      Alert('error', 'error');
     }
   };
 
@@ -126,17 +128,18 @@ const Card = (sports: any) => {
       )
       
       if (likedFilter || dislikedFilter) {
-        console.log('ya esta en la lista');
+        Alert('You already liked or disliked this sport', 'error');
       } else {
-        const newDislike = await addDoc(collection(db, 'dislikes'), {
+        await addDoc(collection(db, 'dislikes'), {
           id,
           name,
           icon,
           user: user.email,
         });
+        Alert(`You disliked this sport ${name}`, 'success');
       }
     } catch (error) {
-      console.log(error);
+      Alert('error', 'error');
     }
   };
 
