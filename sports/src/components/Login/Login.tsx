@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { Form, FormContent, TextAcount, Title, ButtonBlue } from './FormStyled';
 import {
@@ -11,6 +11,7 @@ import { auth } from '../../firebase';
 import NavBarTop from '../NavBar/NavBarTop';
 import NavBarBottom from '../NavBar/NavBarBottom';
 import { Alert } from '../Alert/alert';
+import { resetIndex } from '../../actions/actions';
 
 const Login = () => {
   const logout = async () => {
@@ -24,6 +25,7 @@ const Login = () => {
   });
   const navigate = useNavigate();
   const darkLight = useSelector((state: any) => state.theme);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
@@ -32,6 +34,7 @@ const Login = () => {
           ...user,
           email: `${currentUser.email}`,
         });
+        dispatch(resetIndex());
       } else {
         setUser({
           ...user,

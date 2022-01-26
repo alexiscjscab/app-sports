@@ -28,6 +28,11 @@ const rootReducer = (state = initialState, action: any) => {
         ...state,
         indexNumber: state.indexNumber + 1
       }
+    case 'RESET_INDEX':
+      return {
+        ...state,
+        indexNumber: 0
+      }
     default:
       return state
   }

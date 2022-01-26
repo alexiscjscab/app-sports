@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { ButtonBlue, Form, FormContent, TextAcount, Title } from './FormStyled';
 import { createUserWithEmailAndPassword, UserCredential } from 'firebase/auth';
@@ -7,6 +7,7 @@ import { auth } from '../../firebase';
 import NavBarTop from '../NavBar/NavBarTop';
 import NavBarBottom from '../NavBar/NavBarBottom';
 import { Alert } from '../Alert/alert';
+import { resetIndex } from '../../actions/actions';
 
 const SignUp = (): JSX.Element => {
   const [email, setEmail] = useState<string>('');
@@ -15,6 +16,7 @@ const SignUp = (): JSX.Element => {
   const darkLight = useSelector(
     (state: any) => state.theme
   );
+  const dispatch = useDispatch();
   
   const register = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -34,6 +36,7 @@ const SignUp = (): JSX.Element => {
               'Welcome New User',
               'success'
             )
+            dispatch(resetIndex());
             navigate('/');
           }
         })

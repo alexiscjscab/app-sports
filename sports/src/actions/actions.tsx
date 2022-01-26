@@ -9,13 +9,13 @@ export const darkLight = (theme: string) => async (dispatch: ThunkDispatch<{}, {
       payload: theme
     })
 
-  } catch (error){
+  } catch (error) {
     console.log(error)
   }
 }
 
 export const getAllSports = () => async(dispatch: ThunkDispatch<{}, {},AnyAction>) => {
-  try{
+  try {
     const response = await axios.get('https://www.thesportsdb.com/api/v1/json/2/all_sports.php')
     
     dispatch({
@@ -23,18 +23,28 @@ export const getAllSports = () => async(dispatch: ThunkDispatch<{}, {},AnyAction
       payload: response.data.sports
     })
 
-  } catch (error){
+  } catch (error) {
     console.log(error)
   }
 }
 
 export const indexIncrement = () => async(dispatch: ThunkDispatch<{}, {},AnyAction>) => {
-  try{
+  try {
     dispatch({
       type: 'INDEX_INCREMENT'
     })
 
-  } catch (error){
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const resetIndex = () => async(dispatch: ThunkDispatch<{}, {},AnyAction>) => {
+  try {
+    dispatch({
+      type: 'RESET_INDEX'
+    })
+  } catch (error) {
     console.log(error)
   }
 }
