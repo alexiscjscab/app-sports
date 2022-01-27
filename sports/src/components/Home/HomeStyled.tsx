@@ -29,7 +29,7 @@ export const ButtonHome = styled.button.attrs((props: PropColorTheme) => ({
   background: #004ae6;
   color: #e2e2e2;
   font-size: 18px;
-  margin: 10px;
+  margin: 15px;
   font-family: 'Architects Daughter', cursive;
   &:hover{
     transform: scale(1.1);
