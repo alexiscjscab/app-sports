@@ -38,3 +38,24 @@ export const ButtonHome = styled.button.attrs((props: PropColorTheme) => ({
   }
   
 `;
+
+export  const ImgHome = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin:10px;
+  h1{
+    margin-bottom: 10px;
+  }
+  img{
+    width: 280px;
+    border-radius:10px;
+    filter:drop-shadow(8px 8px 10px gray);
+    margin-bottom: 10px;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+      transform: scale(1.1);
+    }
+  }
+`

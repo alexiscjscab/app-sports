@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { auth } from '../../firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-import { ButtonHome, HomeContainer } from './HomeStyled';
+import { ButtonHome, HomeContainer, ImgHome } from './HomeStyled';
 import NavBarTop from '../NavBar/NavBarTop';
 import NavBarBottom from '../NavBar/NavBarBottom';
 import Match from '../Match/Match';
@@ -39,6 +39,10 @@ const Home:React.FC = () => {
       {user.email === '' 
       ? 
       <>
+        <ImgHome>
+          <h1>Welcome to Greenrun Sport</h1>          
+          <img src='https://media.tycsports.com/files/2020/12/06/160024/maradona-imagen.jpg' alt='Maradona' />
+        </ImgHome>
         <ButtonHome onClick={() => navigate('/login')} colorTheme={darkLight}>
           Login
         </ButtonHome>
