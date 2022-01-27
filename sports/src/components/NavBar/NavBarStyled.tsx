@@ -10,7 +10,8 @@ export const NavTop = styled.nav.attrs((props: PropColorTheme) => ({
   color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :'#000' };
   width: 280px;
   border-radius: 10px;
-
+  font-weight: bold;
+  cursor: default;
   .icon {
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -18,6 +19,7 @@ export const NavTop = styled.nav.attrs((props: PropColorTheme) => ({
       transform: scale(1.2) rotate(360deg);
     }
   }
+
 `
 
 export const NavBottom = styled.nav.attrs((props: PropColorTheme) => ({

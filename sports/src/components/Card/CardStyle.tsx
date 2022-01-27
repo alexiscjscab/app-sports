@@ -23,7 +23,7 @@ export const CardItem = styled.div.attrs((props: PropColorTheme) => ({
     letter-spacing:1px;
     font-weight: 600;
     text-align: center;
-    
+    cursor: default;
     
     #img-ctn {
       box-shadow: ${(props: any) => props.colorTheme  === 'dark' ? '0px 4px 15px #fff' : '0px 4px 15px #000' };

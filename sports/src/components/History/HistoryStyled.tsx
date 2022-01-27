@@ -31,6 +31,7 @@ export const ListHistory = styled.div.attrs((props: PropColorTheme) => ({
   padding: 5px;
   font-weight: bold;
   border-radius: 10px;
+  cursor: default;
   transition: all 0.3s ease-in-out;
   &:hover {
     transform: scale(1.1);

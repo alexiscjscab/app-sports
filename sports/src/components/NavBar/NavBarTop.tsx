@@ -22,7 +22,7 @@ const NavBarTop = () => {
         theme === 'dark' ? <MdOutlineLightMode size={30} onClick={changeTheme}/> : <MdOutlineModeNight size={30} onClick={changeTheme}/>
       }
       </div>
-      <p>Sports</p>
+      <p>Greenrun Sport</p>
     </NavTop>
   )
 };

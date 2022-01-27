@@ -43,11 +43,12 @@ input{
 export const TextAcount = styled.div.attrs((props: PropColorTheme) => ({
   color: props.colorTheme
 }))<PropColorTheme>`
-
+  margin: 5px 0px;
   display: flex;
   justify-content: center;
   align-items: center;
   color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
+  font-size: 18px;
   a{
     text-decoration: none;
     letter-spacing: 2px;
@@ -55,7 +56,7 @@ export const TextAcount = styled.div.attrs((props: PropColorTheme) => ({
     text-transform: uppercase;
     //dark light
     color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
     &:hover{
       color: blue;
       border-color: blue;
