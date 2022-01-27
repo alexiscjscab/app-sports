@@ -16,8 +16,10 @@ input{
   border: none;
   margin: 2px;
   background: transparent;
+  font-family: 'Architects Daughter', cursive;
   &::placeholder{
     color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
+    font-family: 'Architects Daughter', cursive;
   }
   // dark light
   color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
@@ -94,6 +96,7 @@ export const ButtonBlue = styled.button`
   color: #fff;
   font-size: 18px;
   margin: 10px;
+  font-family: 'Architects Daughter', cursive;
   &:hover{
     transform: scale(1.1);
     font-weight: bold;

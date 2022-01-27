@@ -28,6 +28,7 @@ export const ButtonHome = styled.button`
   color: #fff;
   font-size: 18px;
   margin: 10px;
+  font-family: 'Architects Daughter', cursive;
   &:hover{
     transform: scale(1.1);
     font-weight: bold;
