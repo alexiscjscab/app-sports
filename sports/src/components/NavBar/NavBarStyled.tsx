@@ -37,13 +37,16 @@ export const NavBottom = styled.nav.attrs((props: PropColorTheme) => ({
   
 
   .icon{
-    a{
-    text-decoration: none;
-    color: ${(props: any) => props.colorTheme  === 'dark' ? '#000' :'#fff' }; 
-    }
     transition: all 0.3s ease-in-out;
     &:hover{
       transform: scale(1.2);
+    }
+    a{
+    text-decoration: none;
+    color: ${(props: any) => props.colorTheme  === 'dark' ? '#000' :'#fff' }; 
+    &:hover{
+      color: blue;
+    }
     }
   }
 `

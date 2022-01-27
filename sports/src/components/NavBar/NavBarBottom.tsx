@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { NavBottom } from './NavBarStyled';
 import { FaHome, FaHistory, FaUserAlt } from 'react-icons/fa';
 
@@ -10,19 +10,19 @@ const NavBarBottom = () => {
   return (
     <NavBottom colorTheme={darkLight}>
       <div className='icon'>
-        <NavLink to='/'>
+        <Link to='/'>
           <FaHome size={25} />
-        </NavLink>
+        </Link>
       </div>
       <div className='icon'>
-        <NavLink to='/history'>
+        <Link to='/history'>
           <FaHistory size={25} />
-        </NavLink>
+        </Link>
       </div>
       <div className='icon'>
-        <NavLink to='/login'>
+        <Link to='/login'>
           <FaUserAlt size={25} />
-        </NavLink>
+        </Link>
       </div>
     </NavBottom>
   );
