@@ -83,7 +83,13 @@ export const Title = styled.div.attrs((props: PropColorTheme) => ({
 }))<PropColorTheme>`
   text-align: center;
   color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
-  margin: 10px;
+  margin: 15px 0px;
+  h3{
+    margin: 5px;
+  }
+  h1{
+    margin: 5px;
+  }
 `
 
 export const ButtonBlue = styled.button`

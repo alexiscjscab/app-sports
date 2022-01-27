@@ -53,7 +53,6 @@ const SignUp = (): JSX.Element => {
     <FormContent colorTheme={darkLight}>
       <NavBarTop />
       <Title colorTheme={darkLight}>
-        <h1>Welcome</h1>
         <h3>Register New User</h3>
       </Title>
       <Form onSubmit={(e: React.FormEvent<HTMLFormElement>) => register(e)} colorTheme={darkLight}>

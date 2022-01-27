@@ -72,7 +72,6 @@ const Login = () => {
         <FormContent colorTheme={darkLight}>
           <NavBarTop />
           <Title colorTheme={darkLight}>
-            <h1>Welcome</h1>
             <h3>Login User</h3>
           </Title>
           <Form onSubmit={(e) => login(e)} colorTheme={darkLight}>
