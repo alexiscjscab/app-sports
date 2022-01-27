@@ -40,7 +40,7 @@ const Home:React.FC = () => {
       ? 
       <>
         <ImgHome>
-          <h1>Welcome to Greenrun Sport</h1>          
+          <h3>Welcome to Greenrun Sport</h3>          
           <img src='https://media.tycsports.com/files/2020/12/06/160024/maradona-imagen.jpg' alt='Maradona' />
         </ImgHome>
         <ButtonHome onClick={() => navigate('/login')} colorTheme={darkLight}>

@@ -45,7 +45,7 @@ export  const ImgHome = styled.div`
   align-items: center;
   justify-content: center;
   margin:10px;
-  h1{
+  h3{
     margin-bottom: 10px;
   }
   img{
