@@ -80,7 +80,12 @@ const SignUp = (): JSX.Element => {
             required
           />
         </div>
-        <ButtonBlue type='submit'>Sign Up</ButtonBlue>
+        <ButtonBlue 
+          type='submit'
+          colorTheme={darkLight}
+        >
+          Sign Up
+        </ButtonBlue>
       </Form>
       <TextAcount colorTheme={darkLight}>
         <p>

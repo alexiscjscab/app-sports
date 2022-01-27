@@ -7,7 +7,7 @@ export const CardContainer = styled.div.attrs((props: PropColorTheme) => ({
 }))<PropColorTheme>`
   width: 350px;
   border-radius: 4px;
-  color: ${(props: any) => props.colorTheme === 'dark' ? '#fff' : '#000'};
+  color: ${(props: any) => props.colorTheme === 'dark' ? '#e2e2e2' : '#050801'};
   margin-top: 50px;
   `;
 
@@ -26,7 +26,7 @@ export const CardItem = styled.div.attrs((props: PropColorTheme) => ({
     cursor: default;
     
     #img-ctn {
-      box-shadow: ${(props: any) => props.colorTheme  === 'dark' ? '0px 4px 15px #fff' : '0px 4px 15px #000' };
+      box-shadow: ${(props: any) => props.colorTheme  === 'dark' ? '0px 4px 15px #e2e2e2' : '0px 4px 15px #050801' };
       width: 100%;
       height: 200px;
       object-fit: cover;
@@ -34,7 +34,7 @@ export const CardItem = styled.div.attrs((props: PropColorTheme) => ({
       border-radius: 10px;
       &:hover {
         transform: scale(1.1);
-        box-shadow: ${(props: any) => props.colorTheme  === 'dark' ? '0px 6px 18px #fff' : '0px 6px 18px #000' };
+        box-shadow: ${(props: any) => props.colorTheme  === 'dark' ? '0px 6px 18px #e2e2e2' : '0px 6px 18px #050801' };
       }
     }
     .text-top{
@@ -45,7 +45,7 @@ export const CardItem = styled.div.attrs((props: PropColorTheme) => ({
     padding: 5px;
     border-radius: 10px;
     background: ${(props: any) => props.colorTheme  === 'dark' ? 'rgba(30,30,30,0.5)' : 'rgba(180,180,180,0.5)' };
-      color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
+      color: ${(props: any) => props.colorTheme  === 'dark' ? '#e2e2e2' : '#050801' };
     }
     .text-bottom{
       position: absolute;
@@ -55,7 +55,7 @@ export const CardItem = styled.div.attrs((props: PropColorTheme) => ({
       padding: 4px;
       border-radius: 10px;
       background: ${(props: any) => props.colorTheme  === 'dark' ? 'rgba(30,30,30,0.5)' : 'rgba(180,180,180,0.5)' };
-      color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
+      color: ${(props: any) => props.colorTheme  === 'dark' ? '#e2e2e2' : '#050801' };
     }
 
     .icon-bottom{
@@ -84,7 +84,7 @@ export const CardItemIcon = styled.div.attrs((props: PropColorTheme) => ({
   margin-top: 30px;
 
   .heart{
-    color: red;
+    color: #ff2438;
     margin: 12px 0px 0px 12px;
     cursor: pointer;
     transition: all 0.3s ease-in-out;
@@ -97,7 +97,7 @@ export const CardItemIcon = styled.div.attrs((props: PropColorTheme) => ({
     margin: 12px 12px 0px 0px;
     cursor: pointer;
     transition: all 0.4s ease-in-out;
-    color: gray;
+    color: #77767c;
     &:hover{
       transform: scale(1.3)
     }

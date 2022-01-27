@@ -9,8 +9,8 @@ export const MatchContainer = styled.div.attrs((props: PropColorTheme) => ({
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: ${(props: any) => props.colorTheme  === 'dark' ? '#000' : '#fff' };
-  color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
+  background: ${(props: any) => props.colorTheme  === 'dark' ? '#050801' : '#e2e2e2' };
+  color: ${(props: any) => props.colorTheme  === 'dark' ? '#e2e2e2' : '#050801' };
 
   .loading{
     margin-top: 60px;

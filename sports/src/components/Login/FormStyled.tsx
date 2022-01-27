@@ -18,11 +18,11 @@ input{
   background: transparent;
   font-family: 'Architects Daughter', cursive;
   &::placeholder{
-    color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
+    color: ${(props: any) => props.colorTheme  === 'dark' ? '#e2e2e2' : '#050801' };
     font-family: 'Architects Daughter', cursive;
   }
   // dark light
-  color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
+  color: ${(props: any) => props.colorTheme  === 'dark' ? '#e2e2e2' : '#050801' };
 }
 
 .divInput {
@@ -34,7 +34,7 @@ input{
   border-radius: 15px;
   label{
     padding: 4px;
-    color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
+    color: ${(props: any) => props.colorTheme  === 'dark' ? '#e2e2e2' : '#050801' };
     font-weight:300;
   }
 }
@@ -47,7 +47,7 @@ export const TextAcount = styled.div.attrs((props: PropColorTheme) => ({
   display: flex;
   justify-content: center;
   align-items: center;
-  color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
+  color: ${(props: any) => props.colorTheme  === 'dark' ? '#e2e2e2' : '#050801' };
   font-size: 18px;
   a{
     text-decoration: none;
@@ -55,11 +55,11 @@ export const TextAcount = styled.div.attrs((props: PropColorTheme) => ({
     font-weight: 500;
     text-transform: uppercase;
     //dark light
-    color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
-    border-bottom: 1px solid ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
+    color: ${(props: any) => props.colorTheme  === 'dark' ? '#e2e2e2' :' #050801' };
+    border-bottom: 1px solid ${(props: any) => props.colorTheme  === 'dark' ? '#e2e2e2' : '#050801' };
     &:hover{
-      color: blue;
-      border-color: blue;
+      color: #004ae6;
+      border-color: #004ae6;
     }
   }
 `
@@ -74,8 +74,8 @@ export const FormContent = styled.div.attrs((props: PropColorTheme) => ({
   flex-direction: column;
   min-height: 100vh;
   // dark - light
-  background: ${(props: any) => props.colorTheme  === 'dark' ? '#000' : '#fff' };
-  color: color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
+  background: ${(props: any) => props.colorTheme  === 'dark' ? '#050801' : '#e2e2e2' };
+  color: color: ${(props: any) => props.colorTheme  === 'dark' ? '#e2e2e2' : '#050801' };
 `
 
 export const Title = styled.div.attrs((props: PropColorTheme) => ({
@@ -83,7 +83,7 @@ export const Title = styled.div.attrs((props: PropColorTheme) => ({
   color: props.colorTheme
 }))<PropColorTheme>`
   text-align: center;
-  color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :' #000' };
+  color: ${(props: any) => props.colorTheme  === 'dark' ? '#e2e2e2' : '#050801' };
   margin: 15px 0px;
   h3{
     margin: 5px;
@@ -93,21 +93,21 @@ export const Title = styled.div.attrs((props: PropColorTheme) => ({
   }
 `
 
-export const ButtonBlue = styled.button`
+export const ButtonBlue = styled.button.attrs((props: PropColorTheme) => ({
+  'box-shadow': props.colorTheme
+}))<PropColorTheme>`
   cursor: pointer;
   padding: 8px;
   outline: none;
   border: none;
   border-radius: 10px;
-  background: blue;
-  color: #fff;
+  background: #004ae6;
+  color: #e2e2e2;
   font-size: 18px;
   margin: 10px;
   font-family: 'Architects Daughter', cursive;
   &:hover{
     transform: scale(1.1);
     font-weight: bold;
-    box-shadow: 0px 0px 10px #fff;
-  }
-  
+    box-shadow: ${(props: any) => props.colorTheme === 'dark' ? '0px 0px 10px#e2e2e2' : '0px 0px 10px #050801'}
 `;

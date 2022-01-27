@@ -39,7 +39,7 @@ const Home:React.FC = () => {
       {user.email === '' 
       ? 
       <>
-        <ButtonHome onClick={() => navigate('/login')}>
+        <ButtonHome onClick={() => navigate('/login')} colorTheme={darkLight}>
           Login
         </ButtonHome>
       </>

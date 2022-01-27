@@ -99,7 +99,12 @@ const Login = () => {
                 required
               />
             </div>
-            <ButtonBlue type='submit'>Login</ButtonBlue>
+            <ButtonBlue 
+              type='submit'
+              colorTheme={darkLight}
+            >
+              Login
+            </ButtonBlue>
           </Form>
           <TextAcount colorTheme={darkLight}>
             <p>
@@ -115,7 +120,12 @@ const Login = () => {
             <h1>Welcome</h1>
             <h3>{user.email.split('@')[0]}</h3>
           </Title>
-          <ButtonBlue onClick={logout}>Logout</ButtonBlue>
+          <ButtonBlue 
+            onClick={logout}
+            colorTheme={darkLight}
+          >
+            Logout
+          </ButtonBlue>
           <NavBarBottom />
         </FormContent>
       )}

@@ -7,7 +7,7 @@ export const NavTop = styled.nav.attrs((props: PropColorTheme) => ({
   display: flex;
   justify-content: space-around;
   align-items: center;
-  color: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :'#000' };
+  color: ${(props: any) => props.colorTheme  === 'dark' ? '#e2e2e2' : '#050801' };
   width: 280px;
   border-radius: 10px;
   font-weight: bold;
@@ -31,7 +31,7 @@ export const NavBottom = styled.nav.attrs((props: PropColorTheme) => ({
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background: ${(props: any) => props.colorTheme  === 'dark' ? '#fff' :'#000' };
+  background: ${(props: any) => props.colorTheme  === 'dark' ? '#e2e2e2' :'#050801' };
   margin-top: 30px;
   padding: 10px;
   
@@ -43,9 +43,9 @@ export const NavBottom = styled.nav.attrs((props: PropColorTheme) => ({
     }
     a{
     text-decoration: none;
-    color: ${(props: any) => props.colorTheme  === 'dark' ? '#000' :'#fff' }; 
+    color: ${(props: any) => props.colorTheme  === 'dark' ? '#050801' : '#e2e2e2' }; 
     &:hover{
-      color: blue;
+      color: #004ae6;
     }
     }
   }

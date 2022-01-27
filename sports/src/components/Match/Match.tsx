@@ -23,7 +23,7 @@ const Match = () => {
       ) : (
         <ReactLoading
           type='spin'
-          color={darkLight === 'dark' ? '#fff' : '#000'}
+          color={darkLight === 'dark' ? '#e2e2e2' : '#050801'}
           height={50}
           width={50}
           className='loading'

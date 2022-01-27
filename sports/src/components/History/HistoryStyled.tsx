@@ -10,8 +10,8 @@ export const HistoryContainer = styled.div.attrs((props: PropColorTheme) => ({
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: ${(props: any) => props.colorTheme === 'dark' ? '#000' : '#fff'};
-  color: ${(props: any) => (props.colorTheme === 'dark' ? '#fff' : ' #000')};
+  background: ${(props: any) => props.colorTheme === 'dark' ? '#050801' : '#e2e2e2'};
+  color: ${(props: any) => (props.colorTheme === 'dark' ? '#e2e2e2' : '#050801')};
   .list-container {
     margin: 10px 0px;
   }
@@ -22,7 +22,7 @@ export const ListHistory = styled.div.attrs((props: PropColorTheme) => ({
   color: props.colorTheme,
 }))<PropColorTheme>`
   background: rgba(30, 30, 30, 0.11);
-  color: ${(props: any) => (props.colorTheme === 'dark' ? '#fff' : ' #000')};
+  color: ${(props: any) => (props.colorTheme === 'dark' ? '#e2e2e2' : '#050801')};
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,7 +35,7 @@ export const ListHistory = styled.div.attrs((props: PropColorTheme) => ({
   transition: all 0.3s ease-in-out;
   &:hover {
     transform: scale(1.1);
-    box-shadow: ${(props: any) => props.colorTheme  === 'dark' ? '0px 4px 15px #fff' : '0px 4px 15px #000' };
+    box-shadow: ${(props: any) => props.colorTheme  === 'dark' ? '0px 4px 15px #e2e2e2' : '0px 4px 15px #050801' };
   }
 
   .text-icon {

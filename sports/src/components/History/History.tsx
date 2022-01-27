@@ -51,7 +51,7 @@ const History = () => {
             name: like.data().name,
             icon: like.data().icon,
             user: like.data().user,
-            heart: <FaHeart size={28} color='red' />,
+            heart: <FaHeart size={28} color='#ff2438' />,
           });
         });
         getDislikes.forEach((dislike: any) => {
@@ -60,7 +60,7 @@ const History = () => {
             name: dislike.data().name,
             icon: dislike.data().icon,
             user: dislike.data().user,
-            heart: <FaHeartBroken size={28} color={'gray'} />,
+            heart: <FaHeartBroken size={28} color='#77767c' />,
           });
         });
         const filterLikes = arrayLike.filter(
@@ -99,7 +99,7 @@ const History = () => {
         ) : (
           <ReactLoading
             type='spin'
-            color={darkLight === 'dark' ? '#fff' : '#000'}
+            color={darkLight === 'dark' ? '#e2e2e2' : '#050801'}
             height={50}
             width={50}
             className='loading'
