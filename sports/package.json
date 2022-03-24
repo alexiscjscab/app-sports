@@ -1,5 +1,5 @@
 {
-  "homepage": "https://github.com/alexiscjscab/app-sports",
+  "homepage": "https://alexiscjscab.github.io/app-sports",
   "name": "sports",
   "version": "0.0.0",
   "scripts": {
@@ -7,7 +7,7 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "alertify": "^0.3.0",
