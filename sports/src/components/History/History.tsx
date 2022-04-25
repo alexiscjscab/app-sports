@@ -8,6 +8,8 @@ import NavBarBottom from '../NavBar/NavBarBottom';
 import { collection, getDocs } from 'firebase/firestore';
 import { FaHeart, FaHeartBroken } from 'react-icons/fa';
 import ReactLoading from 'react-loading';
+import AuthUser from '../../utils/utils';
+import { UserEmail } from '../../types/types';
 interface Likes {
   id: string;
   name: string;
@@ -16,28 +18,15 @@ interface Likes {
   heart: any;
 }
 
-const History = () => {
+const History: React.FC = () => {
   const darkLight = useSelector((state: any) => state.theme);
-  const [user, setUser] = useState({
-    email: '',
-  });
+  
   // let likes: Array<Likes> | any;
   const [likes, setLikes] = useState([]);
 
+  const user = AuthUser();
+  
   useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setUser({
-          ...user,
-          email: `${currentUser.email}`,
-        });
-      } else {
-        setUser({
-          ...user,
-          email: '',
-        });
-      }
-    });
     const getLikesDoc = async () => {
       if (likes.length === 0) {
         const arrayLike: Array<Likes> = [];
@@ -78,7 +67,7 @@ const History = () => {
       }
     };
     getLikesDoc();
-  }, [likes]);
+  }, [user, likes]);
 
   return (
     <HistoryContainer colorTheme={darkLight}>
