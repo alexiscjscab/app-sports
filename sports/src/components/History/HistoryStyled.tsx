@@ -5,7 +5,7 @@ export const HistoryContainer = styled.div.attrs((props: PropColorTheme) => ({
   background: props.colorTheme,
   color: props.colorTheme,
 }))<PropColorTheme>`
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,6 +14,10 @@ export const HistoryContainer = styled.div.attrs((props: PropColorTheme) => ({
   color: ${(props: any) => (props.colorTheme === 'dark' ? '#e2e2e2' : '#050801')};
   .list-container {
     margin: 10px 0px;
+    .list {
+      height: 320px;
+      overflow-y: scroll;
+    }
   }
 `;
 
@@ -26,7 +30,7 @@ export const ListHistory = styled.div.attrs((props: PropColorTheme) => ({
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 240px;
+  width: 230px;
   margin: 5px;
   padding: 5px;
   font-weight: bold;
@@ -34,7 +38,6 @@ export const ListHistory = styled.div.attrs((props: PropColorTheme) => ({
   cursor: default;
   transition: all 0.3s ease-in-out;
   &:hover {
-    transform: scale(1.1);
     box-shadow: ${(props: any) => props.colorTheme  === 'dark' ? '0px 4px 15px #e2e2e2' : '0px 4px 15px #050801' };
   }
 
@@ -49,7 +52,7 @@ export const ListHistory = styled.div.attrs((props: PropColorTheme) => ({
       height: 35px;
       transition: all 0.3s ease-in-out;
       &:hover {
-        transform: scale(1.2) rotate(360deg);
+        transform: rotate(360deg);
       }
     }
   }

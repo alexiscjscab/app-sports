@@ -7,7 +7,7 @@ export const HomeContainer = styled.div.attrs((props: PropColorTheme) => ({
   background: props.colorTheme,
   color: props.colorTheme
 }))<PropColorTheme>`
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,9 +50,10 @@ export  const ImgHome = styled.div`
   }
   img{
     width: 280px;
+    height: 240px;
     border-radius:10px;
     filter:drop-shadow(8px 8px 10px gray);
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     transition: all 0.3s ease-in-out;
     &:hover{
       transform: scale(1.1);

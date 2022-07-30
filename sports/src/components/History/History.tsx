@@ -20,12 +20,12 @@ interface Likes {
 
 const History: React.FC = () => {
   const darkLight = useSelector((state: any) => state.theme);
-  
+
   // let likes: Array<Likes> | any;
   const [likes, setLikes] = useState([]);
 
   const user = AuthUser();
-  
+
   useEffect(() => {
     const getLikesDoc = async () => {
       if (likes.length === 0) {
@@ -74,17 +74,19 @@ const History: React.FC = () => {
       <NavBarTop />
       <div className='list-container'>
         {likes.length > 0 ? (
-          likes.map((item: any, index: number) => {
-            return (
-              <ListHistory key={index} colorTheme={darkLight}>
-                <div className='text-icon'>
-                  <img src={item.icon} alt={item.name} />
-                  <p>{item.name}</p>
-                </div>
-                <p>{item.heart}</p>
-              </ListHistory>
-            );
-          })
+          <div className='list'>
+            {likes.map((item: any, index: number) => {
+              return (
+                <ListHistory key={index} colorTheme={darkLight}>
+                  <div className='text-icon'>
+                    <img src={item.icon} alt={item.name} />
+                    <p>{item.name}</p>
+                  </div>
+                  <p>{item.heart}</p>
+                </ListHistory>
+              );
+            })}
+          </div>
         ) : (
           <ReactLoading
             type='spin'
