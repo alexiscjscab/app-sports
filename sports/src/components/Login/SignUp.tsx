@@ -1,22 +1,21 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { ButtonBlue, Form, FormContent, TextAcount, Title } from './FormStyled';
-import { createUserWithEmailAndPassword, UserCredential } from 'firebase/auth';
+import { State } from '../../reducer/reducer';
+import { resetIndex } from '../../actions/actions';
 import { auth } from '../../firebase';
+import { createUserWithEmailAndPassword, UserCredential } from 'firebase/auth';
 import NavBarTop from '../NavBar/NavBarTop';
 import NavBarBottom from '../NavBar/NavBarBottom';
 import { Alert } from '../Alert/alert';
-import { resetIndex } from '../../actions/actions';
+import { ButtonBlue, Form, FormContent, TextAcount, Title } from './FormStyled';
 
-const SignUp = (): JSX.Element => {
+const SignUp : React.FC = () => {
+  const navigate = useNavigate();
+  const { theme } = useSelector((state: State) => state);
+  const dispatch = useDispatch();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  const navigate = useNavigate();
-  const darkLight = useSelector(
-    (state: any) => state.theme
-  );
-  const dispatch = useDispatch();
   
   const register = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -37,7 +36,7 @@ const SignUp = (): JSX.Element => {
               'success'
             )
             dispatch(resetIndex());
-            navigate('/');
+            navigate('/app-sports');
           }
         })
         .catch((error) => {
@@ -50,12 +49,12 @@ const SignUp = (): JSX.Element => {
   };
 
   return (
-    <FormContent colorTheme={darkLight}>
+    <FormContent colorTheme={theme}>
       <NavBarTop />
-      <Title colorTheme={darkLight}>
+      <Title colorTheme={theme}>
         <h3>Register New User</h3>
       </Title>
-      <Form onSubmit={(e: React.FormEvent<HTMLFormElement>) => register(e)} colorTheme={darkLight}>
+      <Form onSubmit={(e: React.FormEvent<HTMLFormElement>) => register(e)} colorTheme={theme}>
         <div className='divInput'>
           <label>User</label>
           <input
@@ -82,12 +81,12 @@ const SignUp = (): JSX.Element => {
         </div>
         <ButtonBlue 
           type='submit'
-          colorTheme={darkLight}
+          colorTheme={theme}
         >
           Sign Up
         </ButtonBlue>
       </Form>
-      <TextAcount colorTheme={darkLight}>
+      <TextAcount colorTheme={theme}>
         <p>
           Do you already have an account? <Link to='/login'>Login</Link>
         </p>

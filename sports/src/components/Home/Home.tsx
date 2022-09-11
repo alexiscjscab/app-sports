@@ -1,23 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { State } from '../../reducer/reducer';
+import useAuth from "../../hooks/useAuthHooks";
 import { auth } from "../../firebase";
 import { onAuthStateChanged } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
-import { ButtonHome, HomeContainer, ImgHome } from "./HomeStyled";
+import { UserEmail } from "../../types/types";
 import NavBarTop from "../NavBar/NavBarTop";
 import NavBarBottom from "../NavBar/NavBarBottom";
 import Match from "../Match/Match";
-import AuthUser from "../../utils/utils";
-import { UserEmail } from "../../types/types";
+import { ButtonHome, HomeContainer, ImgHome } from "./HomeStyled";
 
-const Home: React.FC = () => {
+const Home : React.FC = () => {
   const navigate = useNavigate();
-  const darkLight = useSelector((state: any) => state.theme);
+  const user = useAuth()
+  const { theme } = useSelector((state: State) => state);
     
-  const user = AuthUser()
 
   return (
-    <HomeContainer colorTheme={darkLight}>
+    <HomeContainer colorTheme={theme}>
       <NavBarTop />
       {user.email === "" ? (
         <>
@@ -28,7 +29,7 @@ const Home: React.FC = () => {
               alt="Maradona"
             />
           </ImgHome>
-          <ButtonHome onClick={() => navigate("/login")} colorTheme={darkLight}>
+          <ButtonHome onClick={() => navigate("/login")} colorTheme={theme}>
             Login
           </ButtonHome>
         </>

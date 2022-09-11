@@ -1,35 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
-import { Form, FormContent, TextAcount, Title, ButtonBlue } from './FormStyled';
-import {
-  signInWithEmailAndPassword,
-  signOut,
-} from 'firebase/auth';
+import useAuth from '../../hooks/useAuthHooks';
+import { State } from '../../reducer/reducer';
 import { auth } from '../../firebase';
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import NavBarTop from '../NavBar/NavBarTop';
 import NavBarBottom from '../NavBar/NavBarBottom';
 import { Alert } from '../Alert/alert';
+import { Form, FormContent, TextAcount, Title, ButtonBlue } from './FormStyled';
 import { resetIndex } from '../../actions/actions';
-import AuthUser from '../../utils/utils';
 
-const Login = () => {
-  const logout = async () => {
-    await signOut(auth);
-  };
-
+const Login : React.FC = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate();
+  const { theme } = useSelector((state: State) => state);
+  const user = useAuth();
   const [email, setEmail] = useState<string>('');
   const [password, setPassword] = useState<string>('');
-  
-  const navigate = useNavigate();
-  const darkLight = useSelector((state: any) => state.theme);
-  const dispatch = useDispatch();
 
-  const user = AuthUser();
+  const logout = async () => {
+    await signOut(auth);
+    dispatch(resetIndex())
+  };
 
   const login = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log('holaaaa');
+    // hacer validacion email y password
     if (!email.trim() || !password.trim()) {
       alert('Please enter an email and password');
     } else {
@@ -40,7 +37,7 @@ const Login = () => {
             setEmail('');
             setPassword('');
             Alert('Welcome Back', 'success');
-            setTimeout(() => navigate('/'), 2000);
+            setTimeout(() => navigate('/app-sports'), 2000);
           }
         })
         .catch((error) => {
@@ -52,12 +49,12 @@ const Login = () => {
   return (
     <>
       {user.email === '' ? (
-        <FormContent colorTheme={darkLight}>
+        <FormContent colorTheme={theme}>
           <NavBarTop />
-          <Title colorTheme={darkLight}>
+          <Title colorTheme={theme}>
             <h3>Login User</h3>
           </Title>
-          <Form onSubmit={(e) => login(e)} colorTheme={darkLight}>
+          <Form onSubmit={(e) => login(e)} colorTheme={theme}>
             <div className='divInput'>
               <label>User</label>
               <input
@@ -84,12 +81,12 @@ const Login = () => {
             </div>
             <ButtonBlue 
               type='submit'
-              colorTheme={darkLight}
+              colorTheme={theme}
             >
               Login
             </ButtonBlue>
           </Form>
-          <TextAcount colorTheme={darkLight}>
+          <TextAcount colorTheme={theme}>
             <p>
               Don't have an account? <Link to='/signup'> Sign Up </Link>
             </p>
@@ -97,15 +94,15 @@ const Login = () => {
           <NavBarBottom />
         </FormContent>
       ) : (
-        <FormContent colorTheme={darkLight}>
+        <FormContent colorTheme={theme}>
           <NavBarTop />
-          <Title colorTheme={darkLight}>
+          <Title colorTheme={theme}>
             <h1>Welcome</h1>
             <h3>{user.email.split('@')[0]}</h3>
           </Title>
           <ButtonBlue 
             onClick={logout}
-            colorTheme={darkLight}
+            colorTheme={theme}
           >
             Logout
           </ButtonBlue>

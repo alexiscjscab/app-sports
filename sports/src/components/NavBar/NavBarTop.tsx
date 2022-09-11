@@ -1,15 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { State } from '../../reducer/reducer';
 import { darkLight } from '../../actions/actions';
+import {MdOutlineLightMode, MdOutlineModeNight} from 'react-icons/md';
 import { NavTop } from './NavBarStyled';
-import {MdOutlineLightMode} from 'react-icons/md';
-import {MdOutlineModeNight} from 'react-icons/md';
 
-const NavBarTop = () => {
+const NavBarTop : React.FC = () => {
   const dispatch = useDispatch();
-  const theme = useSelector(
-    (state: any) => state.theme
-  )
+  const { theme } = useSelector((state: State) => state)
 
   const changeTheme = () => {
     theme === 'dark' ? dispatch(darkLight('light')) : dispatch(darkLight('dark'));

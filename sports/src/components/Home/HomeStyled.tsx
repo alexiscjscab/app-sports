@@ -12,7 +12,6 @@ export const HomeContainer = styled.div.attrs((props: PropColorTheme) => ({
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // dark ligth
   background: ${(props: any) => props.colorTheme  === 'dark' ? '#050801' : '#e2e2e2' };
   color: ${(props: any) => props.colorTheme  === 'dark' ? '#e2e2e2' :' #050801' };
 `
