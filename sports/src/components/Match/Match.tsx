@@ -17,7 +17,7 @@ const Match : React.FC = () => {
   return (
     <MatchContainer colorTheme={theme}>
       {sports.length > 0 ? (
-        <Card sport={sports} />
+        <Card sports={sports} />
       ) : (
         <ReactLoading
           type='spin'

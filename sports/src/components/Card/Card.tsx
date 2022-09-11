@@ -6,26 +6,28 @@ import { indexIncrement } from "../../actions/actions";
 import { addLikes } from '../../utils/cardUtils';
 import { CardContainer, CardItem, CardItemIcon } from "./CardStyle";
 import { FaHeart, FaHeartBroken } from "react-icons/fa";
+import { Sport } from '../../types/types';
 
+interface Props {
+  sports: Sport[]
+}
 
-const Card : React.FC = (sports: any) => {
+const Card : React.FC<Props>= ({sports}) => {
   const dispatch = useDispatch();
   const user = useAuth();
-  const sport = sports.sport;
   const {indexNumber, theme} = useSelector((state: State) => state);
 
-
-  const handleClick = (value: string, sport: any) => {
+  const handleClick = ((value: string, sport: any) => {
     setTimeout(() => {
       value === "like" ? addLikes(sport, "likes", user) : addLikes(sport, "dislikes", user);
       dispatch(indexIncrement());
     }, 700);
-  };
+  });
 
   return (
     <CardContainer colorTheme={theme}>
-      {sport.length > 0 &&
-        sport.map((sport: any, index: number) => {
+      {sports.length > 0 &&
+        sports.map((sport, index: number) => {
           return index === indexNumber ? (
             <CardItem key={sport.idSport} colorTheme={theme}>
               <div className="img-cardItem">
